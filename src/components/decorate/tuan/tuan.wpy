@@ -1,0 +1,88 @@
+<style lang="scss" src="./tuan.scss">
+</style>
+
+<template lang="wxml">
+  <view class="jt_tuan {{className}}" style="{{style}}">
+    <image 
+      @tap="tap({{card}})"
+      mode="aspectFill" 
+      class="jt_tuan__pic" 
+      src="{{card.pic}}"
+    />
+
+    <view class="jt_tuan__content">
+      <view class="jt_tuan__title">
+        <text>{{card.title}}</text>
+      </view>
+
+      <view class="jt_tuan__other">
+        <view class="jt_tuan__info">
+          <text class="jt_tuan__info--main">￥{{card.price}}</text>
+          <text class="jt_tuan__info--ext">{{card.tip}}</text>
+        </view>
+
+        <view class="jt_tuan__user">
+          <repeat 
+            for="{{card.tuanUsers}}" 
+            item="item" 
+            index="index" 
+            key="index">
+
+            <image 
+              wx:if="{{index===0}}"
+              style="right: 0; z-index: 1;"
+              mode="aspectFill" 
+              class="jt_tuan__user--pic" 
+              src="{{item}}"
+            />
+
+            <image 
+              wx:if="{{index===1}}"
+              style="left: 0; z-index: 2;"
+              mode="aspectFill" 
+              class="jt_tuan__user--pic" 
+              src="{{item}}"
+            />
+          </repeat>
+        </view>
+
+        <view class="jt_tuan__btn" @tap="tap({{card}})">
+          <text>去开团</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+
+  export default class Tuan extends wepy.component {
+    props = {
+      className: {
+        type: String,
+        default: ''
+      },
+      style: {
+        type: String,
+        default: ''
+      },
+      card: {
+        type: Object,
+        default: {
+          pic: '',
+          title: '',
+          price: '',
+          tip: '',
+          tuanUsers: []
+        }
+      }
+    };
+
+    methods = {
+      tap(card) {
+        this.$emit('tap', card);
+      }
+    };
+  }
+</script>

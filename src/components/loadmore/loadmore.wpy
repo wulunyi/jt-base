@@ -1,0 +1,41 @@
+<style lang="scss" src="./loadmore.scss">
+  // 组件样式请使用 _ 线进行命名区分，避免污染引用文件样式
+</style>
+
+<template lang="wxml">
+  <view class="jt_loadmore {{className}}" style="{{style}}">
+    <view class="jt_loadmore__icon {{icon}}"></view>
+    <view class="jt_loadmore__txt">
+      <slot name="tip"></slot>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+
+  export default class Loadmore extends wepy.component {
+    props = {
+      className: {
+        type: String,
+        default: ''
+      },
+
+      style: {
+        type: String,
+        default: ''
+      },
+
+      icon: {
+        type: String,
+        default: ''
+      }
+    };
+
+    methods = {
+      tap() {
+        this.$emit('tap', this.icon);
+      }
+    }
+  }
+</script>

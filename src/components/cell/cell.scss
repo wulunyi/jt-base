@@ -1,0 +1,50 @@
+.jt_cell {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  padding: 20rpx 30rpx;
+  min-height: 90rpx;
+  width: 100%;
+
+  background-color: #ffffff;
+}
+
+.jt_cell__name {
+  flex: 1;
+
+  color: #5D5D5D;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+
+.jt_cell__value {
+  flex-shrink: 0;
+
+  font-size: 24rpx;
+  color: #212121;
+  line-height: 34rpx;
+}
+
+.jt_cell__arrow {
+  position: relative;
+  height: 100%;
+  width: 38rpx;
+}
+
+.r_arrow::after {
+  position: absolute;
+  top: 50%;
+  right: 2rpx;
+  content: " ";
+  display: inline-block;
+  height: 12rpx;
+  width: 12rpx;
+  border-width: 2px 2px 0 0;
+  border-color: #c8c8c8;
+  border-style: solid;
+  transform: translateY(-50%) matrix(.71, .71, -.71, .71, 0, 0)
+}

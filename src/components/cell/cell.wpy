@@ -1,0 +1,57 @@
+<style lang="scss" src="./cell.scss">
+</style>
+
+<template lang="wxml">
+  <view class="jt_cell {{className}}" style="{{style}}" @tap="handleTap">
+    <slot name="icon"></slot>
+    
+    <view class="jt_cell__name">
+      <slot name="name"></slot>
+    </view>
+
+    <view class="jt_cell__value">
+      <slot name="value"></slot>
+    </view>
+
+    <view
+      wx:if="{{hasSpace==='true'}}" 
+      class="jt_cell__arrow {{hasArrow === 'true'?'r_arrow':''}}"
+    >
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+
+  export default class Cell extends wepy.component {
+    props = {
+      className: {
+        type: String,
+        default: ''
+      },
+
+      style: {
+        type: String,
+        default: ''
+      },
+
+      hasArrow: {
+        type: String,
+        default: 'true'
+      },
+
+      hasSpace: {
+        type: String,
+        default: 'true'
+      }
+    }
+
+    methods = {
+      handleTap() {
+        this.$emit('tap');
+      }
+    }
+  }
+</script>
+
