@@ -1,0 +1,73 @@
+@mixin flexible($main: center, $side: center) {
+  display: flex;
+  justify-content: $main;
+  align-items: $side;
+}
+
+.f, .jt_f {
+  display: flex;
+}
+
+.f-c-c, .jt_fcc {
+  @include flexible(center, center);
+}
+
+.f-sb-c, .jt_fsbc {
+  @include flexible(space-between, center);
+}
+
+.f-s-c, .jt_fsc {
+  @include flexible(flex-start, center);
+}
+
+.f-c-s, .jt_fcs {
+  @include flexible(center, flex-start);
+}
+
+.f-s-e, .jt_fse {
+  @include flexible(flex-start, flex-end);
+}
+
+.f-s-s, .jt_fss {
+  @include flexible(flex-start, flex-start);
+}
+
+.f-s-st, .jt_fsst {
+  @include flexible(flex-start, stretch);
+}
+
+.f-sb-s, .jt_fsbs {
+  @include flexible(space-between, flex-start);
+}
+
+.f-sb-e, .jt_fsbe {
+  @include flexible(space-between, flex-end);
+}
+
+.f-sb-st, .jt_fsbst {
+  @include flexible(space-between, stretch);
+}
+
+.f-c-st, .jt_fcst {
+  @include flexible(center, stretch)
+}
+
+.f-sa-c, .jt_fsac {
+  @include flexible(space-around, center);
+}
+
+.f-e-c, .jt_fec {
+  @include flexible(flex-end, center);
+}
+
+.fc, .jt_fc {
+  flex-direction: column;
+}
+
+.f1, .jt_f1 {
+  flex: 1;
+}
+
+.fs, .jt_fs {
+  flex-shrink: 0;
+}
